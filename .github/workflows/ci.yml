@@ -1,0 +1,34 @@
+# ---------------------------------------------------------------------------
+# CI for terraform-aws-iam — uses the central reusable workflow from
+# devotica-labs/terraform-shared-config so every module repo enforces the
+# same standard (fmt, validate, tflint, tfsec, gitleaks, terraform-docs,
+# conftest against the central terraform-policies pack, terraform test,
+# checkov, examples build).
+#
+# To customise per-repo behaviour, override inputs here. Do NOT re-implement
+# checks inline — that defeats the central-governance model.
+#
+# Refs: terraform-module-repo-plan-vpc-v1.3 §6, governance-tooling-v1.0 §4
+# ---------------------------------------------------------------------------
+
+name: CI
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: write       # terraform-docs auto-update pushes regenerated README on PRs
+  pull-requests: write
+  id-token: write
+
+jobs:
+  ci:
+    uses: devotica-labs/terraform-shared-config/.github/workflows/terraform-module-ci.yml@v1
+    with:
+      terraform-version: "1.9.5"
+      working-directory: "."
+      terraform-docs-auto-update: true   # bot regenerates README on PRs
+    secrets: inherit

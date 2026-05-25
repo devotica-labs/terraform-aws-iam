@@ -1,0 +1,21 @@
+terraform-aws-iam
+Copyright 2026 Devotica Labs
+
+This product includes software developed at Devotica Labs
+(https://github.com/devotica-labs).
+
+================================================================================
+
+This module adopts the same governance shape as terraform-aws-vpc:
+unified Foundation Plan §15.2 tagging, the central reusable CI workflow
+in devotica-labs/terraform-shared-config, and conftest policies from
+devotica-labs/terraform-policies.
+
+Defaults for the account-level password policy are aligned with
+the CIS AWS Foundations Benchmark v3.0 (§1.5–1.11) and the RBI Cyber
+Security Framework for Scheduled Commercial Banks (§III.2).
+
+================================================================================
+
+Third-party components and their licenses are documented in CHANGELOG.md
+and inline where used.
