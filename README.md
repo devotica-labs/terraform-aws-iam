@@ -34,7 +34,7 @@ with CycloneDX SBOMs.
 ```hcl
 module "iam" {
   source  = "devotica-labs/iam/aws"
-  version = "~> 1.0"
+  version = "~> 0.1"
 
   roles = {
     lambda-exec = {
