@@ -1,8 +1,6 @@
 # Data sources used by main.tf.
 # Kept minimal so tflint + terraform plan stay fast on offline runs.
 
-data "aws_partition" "current" {}
-
 # Per-role trust policy document. The for_each + dynamic blocks below
 # render the right Principal block ("Service" vs "AWS") and optionally
 # add MFA and ExternalId conditions for cross-account trust.
