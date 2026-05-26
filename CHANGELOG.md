@@ -8,6 +8,13 @@ Releases are cut automatically by `release-please` on merge to `main`,
 driven by Conventional Commit prefixes (`feat:` → minor, `fix:`/`docs:`/`chore:` → patch,
 `feat!:` or `BREAKING CHANGE:` footer → major).
 
+## [0.1.1](https://github.com/devotica-labs/terraform-aws-iam/compare/v0.1.0...v0.1.1) (2026-05-26)
+
+
+### Bug Fixes
+
+* remove unused aws_partition data source ([1e7bfe1](https://github.com/devotica-labs/terraform-aws-iam/commit/1e7bfe1c38416ccd43164ff808458b9a58ac09cf))
+
 ## 0.1.0 (2026-05-25)
 
 
