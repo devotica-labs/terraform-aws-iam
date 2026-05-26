@@ -1,0 +1,23 @@
+# CODEOWNERS for terraform-aws-iam
+#
+# This module manages IAM identities, trust policies, and account-level
+# baselines (password policy, alias, Access Analyzer). Every change here
+# directly affects who can assume what — Security has equity in every file,
+# so the default rule routes review to both cloud-leads and security.
+#
+# Per Module-Repo Plan v1.3 §16 governance.
+
+# Default: every change requires both teams to approve.
+*                          @devotica-labs/cloud-leads @devotica-labs/security
+
+# Trust / role definitions — Security is the primary owner here because
+# changes to var.roles or data.aws_iam_policy_document.trust expand the
+# blast radius of any compromised principal.
+/main.tf                   @devotica-labs/security @devotica-labs/cloud-leads
+/data.tf                   @devotica-labs/security @devotica-labs/cloud-leads
+/variables.tf              @devotica-labs/security @devotica-labs/cloud-leads
+
+# CI/CD pipelines have privileged OIDC role assumption — security is
+# explicitly an owner so a config slip cannot bypass review.
+/.github/                  @devotica-labs/cloud-leads @devotica-labs/security
+/.github/workflows/        @devotica-labs/cloud-leads @devotica-labs/security
