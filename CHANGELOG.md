@@ -8,6 +8,13 @@ Releases are cut automatically by `release-please` on merge to `main`,
 driven by Conventional Commit prefixes (`feat:` → minor, `fix:`/`docs:`/`chore:` → patch,
 `feat!:` or `BREAKING CHANGE:` footer → major).
 
+## 0.1.0 (2026-05-25)
+
+
+### Features
+
+* initial terraform-aws-iam module ([b06f676](https://github.com/devotica-labs/terraform-aws-iam/commit/b06f676b8a9326fc5a82668acc36869e9df56df3))
+
 ## [Unreleased]
 
 ### Added
