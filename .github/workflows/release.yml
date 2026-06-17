@@ -49,10 +49,11 @@ jobs:
             --bundle="${TAG_NAME}.bundle" \
             <(echo "${TAG_NAME}")
 
-      # ── CycloneDX SBOM ──────────────────────────────────────────────────
-      - uses: CycloneDX/gh-terraform-provider-action@v1
+      # ── CycloneDX SBOM (syft via anchore/sbom-action) ───────────────────
+      - uses: anchore/sbom-action@v0
         with:
-          project-directory: .
+          path: .
+          format: cyclonedx-json
           output-file: "${{ needs.release_please.outputs.tag_name }}.cdx.json"
 
       # ── Attach to GitHub Release ─────────────────────────────────────────
