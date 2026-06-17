@@ -39,7 +39,7 @@ jobs:
     # Avoid an infinite loop: don't run when the bot itself pushed the
     # regenerated diagram (the head commit message includes the
     # auto-commit marker).
-    if: ${{ !contains(github.event.head_commit.message, '[skip-arch-diagram]') }}
+    if: ${{ github.actor != 'dependabot[bot]' && !contains(github.event.head_commit.message, '[skip-arch-diagram]') }}
 
     steps:
       - name: Checkout (PR branch when applicable)
